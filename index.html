@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Maths Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="start-game">
+            <h1>Welcome to Maths Quiz game.</h1>
+            <p>Press the button below to start the game</p>
+            <a id="start-btn" onclick="restart()">LET'S PLAY</a>
+        </div>
+        <div id="in-game">
+            <div class="top-section">
+                <h1>Maths Game</h1>
+                <div class="game-data">
+                    <p>Question :
+                        <span id="Qno">0</span>/10
+                    </p>
+                    <p>Score: <span id="score">0</span></p>
+                </div>
+                <div class="timer"></div>
+            </div>
+            <div class="question-card">
+                <h1 id="question">This is question</h1>
+            </div>
+            <h3>Choose correct one: </h3>
+            <div class="answer-card">
+                <button>Option A</button>
+                <button>Option B</button>
+                <button>Option C</button>
+                <button>Option D</button>
+            </div>
+        </div>
+        <div id="end-game">
+            <h1>&#128515</h1>
+            <h1>Your total score was : <span id="final-score">0</span> / 1000</h1>
+            <a id="restart-btn" onclick="restart()">PLAY AGAIN</a>
+        </div>
+    </div>
+</body>
+
+</html>
