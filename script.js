@@ -103,7 +103,7 @@ function getQNo() {
 }
 
 function getScore() {
-    score.innerHTML = parseInt(score.innerHTML) + 100;
+    score.innerHTML = parseInt(score.innerHTML) + parseInt(progress.style.width);
     // console.log(score.innerHTML);
 }
 
@@ -129,12 +129,12 @@ function outro(i) {
 
 function lastmessage() {
     clearInterval(t);
-    if (fScore.innerText == 1000) {
+    if (fScore.innerText >= 800) {
         let emoji = "&#128525";
-        message.innerHTML = "WOW !! EXCELLENT " + emoji;
+        message.innerHTML = "WOW !! UNBELIEVABLE !!" + emoji;
     } else if (fScore.innerText >= 500) {
         let emoji = "&#128531";
-        message.innerHTML = "Could have been better. Better luck next time " + emoji;
+        message.innerHTML = "TOO CLOSE !!" + emoji;
     } else if (fScore.innerText >= 100) {
         let emoji = "&#128549";
         message.innerHTML = "Better luck next time " + emoji;
