@@ -105,8 +105,8 @@ button:hover {
 }
 
 #progress {
+    transition: ease;
     height: 100%;
-    width: 0;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
