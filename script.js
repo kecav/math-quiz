@@ -14,6 +14,7 @@ let gameBox = document.getElementById("in-game");
 let endBox = document.getElementById("end-game");
 let timer = document.getElementById("timer");
 let progress = document.getElementById("progress");
+let message = document.getElementById("message");
 let operator = ['+', '-', '*', '/'];
 
 
@@ -33,6 +34,7 @@ function whenFinished() {
     gameBox.style.display = "none"
     startBox.style.display = "none";
     endBox.style.display = "flex";
+    lastmessage();
 }
 
 function nextQuestion() {
@@ -122,6 +124,21 @@ function outro(i) {
     }, 500);
 }
 
+function lastmessage() {
+    if (fScore.innerText == 1000) {
+        let emoji = "&#128525";
+        message.innerHTML = "WOW !! EXCELLENT " + emoji;
+    } else if (fScore.innerText >= 500) {
+        let emoji = "&#128531";
+        message.innerHTML = "Could have been better. Better luck next time " + emoji;
+    } else if (fScore.innerText >= 100) {
+        let emoji = "&#128549";
+        message.innerHTML = "Better luck next time " + emoji;
+    } else {
+        let emoji = "&#128577";
+        message.innerHTML = "Bad Luck " + emoji;
+    }
+}
 buttons[0].addEventListener('click', () => {
     if (buttons[0].innerText == answer) {
         doWhenCorrect(0);
