@@ -12,6 +12,8 @@ let fScore = document.getElementById("final-score");
 let startBox = document.getElementById("start-game");
 let gameBox = document.getElementById("in-game");
 let endBox = document.getElementById("end-game");
+let timer = document.getElementById("timer");
+let progress = document.getElementById("progress");
 let operator = ['+', '-', '*', '/'];
 
 
@@ -23,6 +25,7 @@ function restart() {
     gameBox.style.display = "block"
     startBox.style.display = "none";
     endBox.style.display = "none";
+    timer.style.display = "block";
 }
 
 function whenFinished() {
@@ -33,6 +36,7 @@ function whenFinished() {
 }
 
 function nextQuestion() {
+    progress.style.width = qNo.innerText / 0.1 + "%";
     fScore.innerHTML = score.innerHTML;
     if (qNo.innerText == "10") {
         whenFinished();
@@ -79,6 +83,10 @@ function getOptions() {
         } else {
             buttons[i].innerHTML = Math.floor(Math.random() * 100);
         }
+
+        if (answer < 0) {
+            buttons[i].innerHTML = "-" + buttons[i].innerHTML;
+        }
     }
     ansOpt = Math.floor(Math.random() * 4);
     buttons[ansOpt].innerHTML = answer;
@@ -111,7 +119,7 @@ function outro(i) {
         nextQuestion();
         buttons[i].style.color = "#000";
         buttons[i].style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-    }, 1500);
+    }, 500);
 }
 
 buttons[0].addEventListener('click', () => {
