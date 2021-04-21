@@ -12,11 +12,10 @@ let fScore = document.getElementById("final-score");
 let startBox = document.getElementById("start-game");
 let gameBox = document.getElementById("in-game");
 let endBox = document.getElementById("end-game");
-let timer = document.getElementById("timer");
 let progress = document.getElementById("progress");
 let message = document.getElementById("message");
 let operator = ['+', '-', '*', '/'];
-
+let t;
 
 function restart() {
     score.innerHTML = "0";
@@ -38,7 +37,10 @@ function whenFinished() {
 }
 
 function nextQuestion() {
-    progress.style.width = qNo.innerText / 0.1 + "%";
+
+    progress.style.width = "100%";
+    timed();
+    // timed();
     fScore.innerHTML = score.innerHTML;
     if (qNo.innerText == "10") {
         whenFinished();
@@ -73,6 +75,7 @@ function nextQuestion() {
     // console.log("answer: " + answer);
     getOptions();
     getQNo();
+
 }
 
 function getOptions() {
@@ -125,6 +128,7 @@ function outro(i) {
 }
 
 function lastmessage() {
+    clearInterval(t);
     if (fScore.innerText == 1000) {
         let emoji = "&#128525";
         message.innerHTML = "WOW !! EXCELLENT " + emoji;
@@ -139,12 +143,25 @@ function lastmessage() {
         message.innerHTML = "Bad Luck " + emoji;
     }
 }
+
+function timed() {
+    t = setInterval(() => {
+        progress.style.width = (parseInt(progress.style.width) - 1) + "%";
+        console.log("called");
+        if (parseInt(progress.style.width) == 0) {
+            clearInterval(t);
+            nextQuestion();
+        }
+    }, 100)
+}
+
 buttons[0].addEventListener('click', () => {
     if (buttons[0].innerText == answer) {
         doWhenCorrect(0);
     } else {
         doWhenIncorrect(0);
     }
+    clearInterval(t);
     outro(0);
 });
 buttons[1].addEventListener('click', () => {
@@ -153,6 +170,7 @@ buttons[1].addEventListener('click', () => {
     } else {
         doWhenIncorrect(1);
     }
+    clearInterval(t);
     outro(1);
 });
 buttons[2].addEventListener('click', () => {
@@ -161,6 +179,7 @@ buttons[2].addEventListener('click', () => {
     } else {
         doWhenIncorrect(2);;
     }
+    clearInterval(t);
     outro(2);
 });
 buttons[3].addEventListener('click', () => {
@@ -169,5 +188,6 @@ buttons[3].addEventListener('click', () => {
     } else {
         doWhenIncorrect(3);
     }
+    clearInterval(t);
     outro(3);
 });
