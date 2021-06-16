@@ -9,3 +9,6 @@ If the user is unable to pick the answer within that limit, next question will a
 # SCORING
 Time based feature added. The scores now will be generated on the basis of how much of time was left for that particular question.
 A simple linear function is used. (Ex : If the user finishes one question in 9s, the sore for that question will be 90%).
+
+![image](https://user-images.githubusercontent.com/78557222/122156687-2022f200-ce87-11eb-952d-41f1c9ce44bc.png)
+![image](https://user-images.githubusercontent.com/78557222/122156702-274a0000-ce87-11eb-86a4-7e6296c8d8bc.png)
