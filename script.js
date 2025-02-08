@@ -14,6 +14,7 @@ let gameBox = document.getElementById("in-game");
 let endBox = document.getElementById("end-game");
 let progress = document.getElementById("progress");
 let message = document.getElementById("message");
+let timer = document.getElementById("timer");
 let operator = ['+', '-', '*', '/'];
 let maxNum = 20;
 let maxQuestions = 10;
@@ -27,7 +28,7 @@ function restart() {
     gameBox.style.display = "block"
     startBox.style.display = "none";
     endBox.style.display = "none";
-    // timer.style.display = "block";
+    timer.style.display = "block";
 }
 
 function whenFinished() {
@@ -82,7 +83,7 @@ function nextQuestion() {
 
 function getOptions() {
 
-    for (let i = 0; i < 4; i++ && i != ansOpt) {
+    for (let i = 0; i < 5; i++ && i != ansOpt) {
         if (answer > 100) {
             buttons[i].innerHTML = answer + Math.floor(Math.random() * answer * 0.4);
         } else if (answer > 30 && answer < 100) {
@@ -95,7 +96,7 @@ function getOptions() {
             buttons[i].innerHTML = "-" + buttons[i].innerHTML;
         }
     }
-    ansOpt = Math.floor(Math.random() * 4);
+    ansOpt = Math.floor(Math.random() * 5);
     buttons[ansOpt].innerHTML = answer;
 }
 
@@ -192,4 +193,13 @@ buttons[3].addEventListener('click', () => {
     }
     clearInterval(t);
     outro(3);
+});
+buttons[4].addEventListener('click', () => {
+    if (buttons[4].innerText == answer) {
+        doWhenCorrect(4);
+    } else {
+        doWhenIncorrect(4);
+    }
+    clearInterval(t);
+    outro(4);
 });
