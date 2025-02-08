@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: rgb(73, 230, 236);
+    background-color: rgb(108, 173, 37);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -18,18 +18,18 @@ body {
 }
 
 .container {
-    background-color: aliceblue;
+    background-color: #ccc2c2;
     transition: 1s ease;
     width: 80%;
     max-width: 40rem;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 1rem 1rem 10rem 2rem rgb(0 0 0 / 0.25);
+    box-shadow: 1rem 1rem 10rem 2rem rgb(255, 10, 10);
     padding: 2.5rem;
 }
 
 .question-card {
-    background-color: aquamarine;
+    background-color: #2e7ac8;
     border-radius: 1rem;
     margin: 2rem auto;
     padding: 2rem 0;

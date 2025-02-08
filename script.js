@@ -15,6 +15,8 @@ let endBox = document.getElementById("end-game");
 let progress = document.getElementById("progress");
 let message = document.getElementById("message");
 let operator = ['+', '-', '*', '/'];
+let maxNum = 20;
+let maxQuestions = 10;
 let t;
 
 function restart() {
@@ -25,7 +27,7 @@ function restart() {
     gameBox.style.display = "block"
     startBox.style.display = "none";
     endBox.style.display = "none";
-    timer.style.display = "block";
+    // timer.style.display = "block";
 }
 
 function whenFinished() {
@@ -42,30 +44,30 @@ function nextQuestion() {
     timed();
     // timed();
     fScore.innerHTML = score.innerHTML;
-    if (qNo.innerText == "10") {
+    if (qNo.innerText === ""+maxQuestions) {
         whenFinished();
     }
-    n1 = Math.floor(Math.random() * 10);
-    n2 = Math.floor(Math.random() * 10);
-    opSelector = operator[Math.floor(Math.random() * 4)];
+    n1 = Math.floor(Math.random() * maxNum);
+    n2 = Math.floor(Math.random() * maxNum);
+    opSelector = operator[Math.floor(Math.random() * operator.length)];
 
-    if (opSelector == "÷") {
+    if (opSelector === "/") {
         for (let i = 0; i < 200; i++) {
             if (n1 % n2 == 0 && n1 != 0 && n2 != 0 && n2 != 1 && n1 != n2) {
                 break;
             }
-            n1 = Math.floor(Math.random() * 10);
-            n2 = Math.floor(Math.random() * 10);
+            n1 = Math.floor(Math.random() * maxNum);
+            n2 = Math.floor(Math.random() * maxNum);
         }
     }
 
-    if (opSelector == "⋅") {
+    if (opSelector === "*") {
         for (let i = 0; i < 100; i++) {
             if (n1 * n2 <= 1000) {
                 break;
             }
-            n1 = Math.floor(Math.random() * 10);
-            n2 = Math.floor(Math.random() * 10);
+            n1 = Math.floor(Math.random() * maxNum);
+            n2 = Math.floor(Math.random() * maxNum);
         }
     }
     question.innerHTML = n1 + opSelector + n2;
@@ -86,7 +88,7 @@ function getOptions() {
         } else if (answer > 30 && answer < 100) {
             buttons[i].innerHTML = answer + Math.floor(Math.random() * answer * 0.6);
         } else {
-            buttons[i].innerHTML = Math.floor(Math.random() * 100);
+            buttons[i].innerHTML = Math.floor(Math.random() * maxNum);
         }
 
         if (answer < 0) {
@@ -147,7 +149,7 @@ function lastmessage() {
 function timed() {
     t = setInterval(() => {
         progress.style.width = (parseInt(progress.style.width) - 1) + "%";
-        console.log("called");
+        // console.log("called");
         if (parseInt(progress.style.width) == 0) {
             clearInterval(t);
             nextQuestion();
