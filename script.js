@@ -45,8 +45,8 @@ function nextQuestion() {
     if (qNo.innerText == "10") {
         whenFinished();
     }
-    n1 = Math.floor(Math.random() * 100);
-    n2 = Math.floor(Math.random() * 100);
+    n1 = Math.floor(Math.random() * 10);
+    n2 = Math.floor(Math.random() * 10);
     opSelector = operator[Math.floor(Math.random() * 4)];
 
     if (opSelector == "÷") {
@@ -54,8 +54,8 @@ function nextQuestion() {
             if (n1 % n2 == 0 && n1 != 0 && n2 != 0 && n2 != 1 && n1 != n2) {
                 break;
             }
-            n1 = Math.floor(Math.random() * 100);
-            n2 = Math.floor(Math.random() * 100);
+            n1 = Math.floor(Math.random() * 10);
+            n2 = Math.floor(Math.random() * 10);
         }
     }
 
@@ -64,8 +64,8 @@ function nextQuestion() {
             if (n1 * n2 <= 1000) {
                 break;
             }
-            n1 = Math.floor(Math.random() * 50);
-            n2 = Math.floor(Math.random() * 50);
+            n1 = Math.floor(Math.random() * 10);
+            n2 = Math.floor(Math.random() * 10);
         }
     }
     question.innerHTML = n1 + opSelector + n2;
