@@ -49,7 +49,7 @@ function nextQuestion() {
     n2 = Math.floor(Math.random() * 100);
     opSelector = operator[Math.floor(Math.random() * 4)];
 
-    if (opSelector == "/") {
+    if (opSelector == "÷") {
         for (let i = 0; i < 200; i++) {
             if (n1 % n2 == 0 && n1 != 0 && n2 != 0 && n2 != 1 && n1 != n2) {
                 break;
@@ -59,7 +59,7 @@ function nextQuestion() {
         }
     }
 
-    if (opSelector == "*") {
+    if (opSelector == "⋅") {
         for (let i = 0; i < 100; i++) {
             if (n1 * n2 <= 1000) {
                 break;
@@ -131,16 +131,16 @@ function lastmessage() {
     clearInterval(t);
     if (fScore.innerText >= 800) {
         let emoji = "&#128525";
-        message.innerHTML = "WOW !! UNBELIEVABLE !!" + emoji;
+        message.innerHTML = "WOW !! NEĮTIKĖTINA !!" + emoji;
     } else if (fScore.innerText >= 500) {
         let emoji = "&#128531";
-        message.innerHTML = "TOO CLOSE !!" + emoji;
+        message.innerHTML = "LABAI ARTI !!" + emoji;
     } else if (fScore.innerText >= 100) {
         let emoji = "&#128549";
-        message.innerHTML = "Better luck next time " + emoji;
+        message.innerHTML = "Sėkmės kitą kartą " + emoji;
     } else {
         let emoji = "&#128577";
-        message.innerHTML = "Bad Luck " + emoji;
+        message.innerHTML = "Bloga sėkmė " + emoji;
     }
 }
 
