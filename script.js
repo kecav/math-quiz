@@ -39,6 +39,7 @@ function whenFinished() {
 function nextQuestion() {
 
     progress.style.width = "100%";
+    clearInterval(t);
     timed();
     // timed();
     fScore.innerHTML = score.innerHTML;
